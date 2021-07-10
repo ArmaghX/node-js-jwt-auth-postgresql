@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
-const db = require("../models");
 require('dotenv').config();
 
-verifyToken = (req, res, next) => {
+exports.verifyToken = (req, res, next) => {
   let token = req.headers["x-access-token"];
 
   if (!token) {
@@ -21,8 +20,3 @@ verifyToken = (req, res, next) => {
     next();
   });
 };
-
-const authJwt = {
-  verifyToken: verifyToken
-};
-module.exports = authJwt;
