@@ -27,9 +27,8 @@ exports.signup = (req, res) => {
         return res.status(400).json({err});
       }
       const user = result.rows[0];
-      console.log(user);
       const token = jwt.sign(
-        { id: result.rows[0].id }, 
+        { id: user.id }, 
         process.env.SECRET, 
         { expiresIn: ONEDAY }
       );
