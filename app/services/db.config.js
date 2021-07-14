@@ -39,7 +39,6 @@ const createTables = () => {
 
 pool.on('remove', () => {
   console.log('Client Removed');
-  process.exit(0);
 });
 
 module.exports = {
